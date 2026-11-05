@@ -59,7 +59,7 @@ jobs:
         run: docker build -t ci-cd-training .
 
       - name: Run unit tests in Docker
-        run: docker run --rm ci-cd-training
+        run: docker run --rm ci-cd-training python -m pytest tests/ -v -m "not integration"
 
   publish:
     needs: test
